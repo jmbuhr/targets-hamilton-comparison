@@ -1,0 +1,19 @@
+project:
+  type: website
+  output-dir: docs
+
+format:
+  html:
+    code-tools: true
+
+
+execute:
+  warning: false
+
+website:
+  sidebar:
+    style: "docked"
+    contents:
+      - './index.qmd'
+      - './targets-entry.qmd'
+      - './hamilton-entry.qmd'

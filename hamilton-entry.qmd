@@ -1,8 +1,5 @@
 ---
 title: Hamilton Eample
-format: html
-execute:
-  warning: false
 ---
 
 # Setup

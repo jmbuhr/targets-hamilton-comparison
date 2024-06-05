@@ -1,0 +1,32 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Python Hamilton and R targets comparisons",
+    "section": "",
+    "text": "R targets\nPython Hamilton",
+    "crumbs": [
+      "Python Hamilton and R targets comparisons"
+    ]
+  },
+  {
+    "objectID": "targets-entry.html",
+    "href": "targets-entry.html",
+    "title": "Targets Example",
+    "section": "",
+    "text": "Requirements\n\ninstall.packages(\"targets\")\ninstall.packages(\"visNetwork\")\ninstall.packages(\"tidyverse\")\n\n\n\nTargets Example\n\nlibrary(tidyverse)\nlibrary(targets)\n\n\ntar_make()\n\n✔ skipped target file\n✔ skipped target data\n✔ skipped target model\n✔ skipped target plot\n✔ skipped pipeline [0.039 seconds]\n\n\n\ntar_visnetwork(callr_arguments = list(show = FALSE))\n\n\n\n\n\n\ntar_load(plot)\nplot",
+    "crumbs": [
+      "Targets Example"
+    ]
+  },
+  {
+    "objectID": "hamilton-entry.html",
+    "href": "hamilton-entry.html",
+    "title": "Hamilton Eample",
+    "section": "",
+    "text": "Setup\npython -m venv .venv\nsource .venv/bin/activate\npip install -r requirements.txt\n\n\nHamilton Example\n\nfrom hamilton import driver\nfrom hamilton.plugins import h_diskcache\nimport src.workflow as workflow\n\n# check if we are runnign in ipython console\n# or during rendering via the jupyter kernel\n# in which case we don't want to open files\n# while rendering\nfrom IPython.core.getipython import get_ipython\nip = get_ipython()\ninteractive = False\nif ip is not None and 'interactiveshell.TerminalInteractiveShell' in str(ip):\n  interactive = True\n\ncache = h_diskcache.DiskCacheAdapter()\ndr = (\n  driver.Builder()\n  .with_modules(workflow)\n  .with_adapter(cache)\n  .build()\n)\n\n\ncache.cache.clear()\n\n\ng = dr.display_all_functions()\nif interactive:\n  g.render(view=True)\ng\n\n\n\n\n\n\n\n\n\ndr.execute(final_vars=[\"plot\"])\n\n{'plot': (&lt;Figure size 672x480 with 1 Axes&gt;, &lt;Axes: &gt;)}",
+    "crumbs": [
+      "Hamilton Eample"
+    ]
+  }
+]

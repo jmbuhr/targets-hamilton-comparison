@@ -1,8 +1,5 @@
 ---
 title: Targets Example
-format: html
-execute:
-  warning: false
 ---
 
 # Requirements
