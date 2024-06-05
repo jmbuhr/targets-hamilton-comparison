@@ -1,0 +1,36 @@
+---
+title: Targets Example
+format: html
+execute:
+  warning: false
+---
+
+# Requirements
+
+```{r}
+#| eval: false
+install.packages("targets")
+install.packages("visNetwork")
+install.packages("tidyverse")
+```
+
+# Targets Example
+
+```{r}
+library(tidyverse)
+library(targets)
+```
+
+```{r}
+tar_make()
+```
+
+```{r}
+tar_visnetwork(callr_arguments = list(show = FALSE))
+```
+
+
+```{r}
+tar_load(plot)
+plot
+```

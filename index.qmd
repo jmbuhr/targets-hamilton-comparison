@@ -1,0 +1,7 @@
+---
+title: Python Hamilton and R targets comparisons
+format: html
+---
+
+- [R targets](/targets-entry.html)
+- [Python Hamilton](/hamilton-entry.html)

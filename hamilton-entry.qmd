@@ -1,0 +1,58 @@
+---
+title: Hamilton Eample
+format: html
+execute:
+  warning: false
+---
+
+# Setup
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+# Hamilton Example
+
+```{python}
+from hamilton import driver
+from hamilton.plugins import h_diskcache
+import src.workflow as workflow
+
+# check if we are runnign in ipython console
+# or during rendering via the jupyter kernel
+# in which case we don't want to open files
+# while rendering
+from IPython.core.getipython import get_ipython
+ip = get_ipython()
+interactive = False
+if ip is not None and 'interactiveshell.TerminalInteractiveShell' in str(ip):
+  interactive = True
+
+cache = h_diskcache.DiskCacheAdapter()
+dr = (
+  driver.Builder()
+  .with_modules(workflow)
+  .with_adapter(cache)
+  .build()
+)
+```
+
+
+```{python}
+#| eval: false
+cache.cache.clear()
+```
+
+```{python}
+g = dr.display_all_functions()
+if interactive:
+  g.render(view=True)
+g
+```
+
+```{python}
+dr.execute(final_vars=["plot"])
+```
+

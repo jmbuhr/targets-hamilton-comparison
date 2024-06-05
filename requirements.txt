@@ -1,0 +1,10 @@
+sf-hamilton
+pandas
+statsmodels
+numpy
+matplotlib
+graphviz
+ipython
+jupyter
+diskcache
+seaborn
