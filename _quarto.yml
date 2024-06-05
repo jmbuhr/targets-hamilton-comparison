@@ -2,16 +2,22 @@ project:
   type: website
   output-dir: docs
 
+
 format:
   html:
     code-tools: true
-
 
 execute:
   warning: false
 
 website:
+  page-navigation: true
+  repo-url: https://github.com/jmbuhr/targets-hamilton-comparison
+  repo-actions: [edit, issue]
   sidebar:
+    tools:
+      - icon: github
+        href:  https://github.com/jmbuhr/targets-hamilton-comparison
     style: "docked"
     contents:
       - './index.qmd'
